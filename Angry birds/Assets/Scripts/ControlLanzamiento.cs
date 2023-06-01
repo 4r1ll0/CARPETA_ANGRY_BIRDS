@@ -8,10 +8,12 @@ public class ControlLanzamiento : MonoBehaviour
     
     public Rigidbody2D pivote;
     public GameObject bola;
+    public float tiempoQuitarSprintJoin;
+    public float tiempoFinJuego;
+
     
     private Camera camara;
     private Rigidbody2D bolaRigidbody;
-    private float tiempoQuitarSprintJoin;
     private SpringJoint2D bolaSprintJoint;
 
     private bool estaArrastrando;
@@ -48,6 +50,7 @@ public class ControlLanzamiento : MonoBehaviour
 
         Vector2 posicionTocar = Touchscreen.current.primaryTouch.position.ReadValue();
         Vector3 posicionMundo = camara.ScreenToWorldPoint(posicionTocar);
+        bolaRigidbody.position = posicionMundo;
 
         Debug.Log(posicionMundo);
     }   
@@ -62,7 +65,14 @@ public class ControlLanzamiento : MonoBehaviour
 
     private void QuitarSprintJoin()
     {
-        
+        bolaSprintJoint.enabled = false;
+        bolaSprintJoint = null;
+
+        Invoke(nameof(FinJuego), tiempoFinJuego);
     }
 
+    private void FinJuego()
+    {
+        Debug.Log("Fin Juego");
+    }
 }

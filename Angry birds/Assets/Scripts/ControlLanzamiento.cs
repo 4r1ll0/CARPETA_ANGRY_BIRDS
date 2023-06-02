@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ControlLanzamiento : MonoBehaviour
 {
@@ -73,6 +74,6 @@ public class ControlLanzamiento : MonoBehaviour
 
     private void FinJuego()
     {
-        Debug.Log("Fin Juego");
+        SceneManager.LoadScene("FinNivel");
     }
 }

@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class ControlFinNivel : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TextMeshProUGUI mensajeFinalTexto;
+    private ControlDatosJuego datosjuego;
+    
     void Start()
     {
-        
+        datosjuego = GameObject.Find("DatosJuego")
+            .GetComponent<ControlDatosJuego>();
+        string mensajeFinal = "Numero de Bolos : " + datosjuego.Puntuacion;
+        if (datosjuego.Puntuacion == 6)
+            mensajeFinal += "\n\n¡¡¡ ENORABUENA !!!";
+
+        mensajeFinalTexto.text = mensajeFinal;  
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

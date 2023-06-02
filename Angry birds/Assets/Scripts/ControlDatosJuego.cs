@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class ControlDatosJuego : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private int puntuacion;
 
-    // Update is called once per frame
-    void Update()
+    public int Puntuacion { get => puntuacion; set => puntuacion = value; }
+
+    private void Awake()
     {
-        
+        int numInstancias = FindObjectOfType<ControlDatosJuego>().Length;
+
+        if (numInstancias != 1)
+        {
+            Destroy(this.gameObject);
+        }
+        else 
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 }

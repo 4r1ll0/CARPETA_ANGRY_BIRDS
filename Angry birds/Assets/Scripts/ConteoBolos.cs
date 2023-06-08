@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ConteoBolos : MonoBehaviour
 {
-    private class cuantos = 0;
-    private ControlDatosJuegos datosJuego;
+    private int cuantos = 0;
+    private ControlDatosJuego datosJuego;
 
     void Start()
     {

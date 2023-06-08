@@ -10,7 +10,7 @@ public class ControlDatosJuego : MonoBehaviour
 
     private void Awake()
     {
-        int numInstancias = FindObjectOfType<ControlDatosJuego>().Length;
+        int numInstancias = FindObjectsOfType<ControlDatosJuego>().Length;
 
         if (numInstancias != 1)
         {
